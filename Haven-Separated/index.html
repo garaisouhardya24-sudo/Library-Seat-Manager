@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <meta name="description" content="Haven Library Seat Finder and Monitor" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%231f684e' d='M7 15h14v35H7zm18-6h14v41H25zm18 9h14v32H43zM4 52h56v5H4z'/%3E%3Cpath fill='%23f5c66b' d='M29 13h6v8h-6z'/%3E%3C/svg%3E"
+    />
+    <title>Haven — Library Seat Finder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <svg aria-hidden="true" class="svg-defs" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="haven-books" viewBox="0 0 64 64">
+        <path
+          d="M6 16h14v35H6zm19-7h14v42H25zm19 9h14v33H44zM4 52h56v5H4z"
+          fill="currentColor"
+        />
+        <path d="M29 13h6v8h-6z" fill="#f5c66b" />
+        <path
+          d="M9 21h8M28 24h8M47 23h8"
+          fill="none"
+          stroke="#fff"
+          stroke-linecap="round"
+          stroke-width="2"
+        />
+      </symbol>
+    </svg>
+
+    <section class="login-screen" id="loginScreen">
+      <div class="login-hero">
+        <a class="brand" href="#">
+          <svg class="brand-icon"><use href="#haven-books" /></svg>
+          <span>haven.<small>LIBRARY SEAT FINDER</small></span>
+        </a>
+        <p class="eyebrow">A QUIETER WAY TO STUDY</p>
+        <h1>Every book deserves<br /><em>a quiet corner.</em></h1>
+        <p class="hero-copy">
+          Find your seat, settle in, and make the most of your time at the
+          library.
+        </p>
+        <div class="hero-notes">
+          <span>⌂ Live seats</span>
+          <span>◷ Focus sessions</span>
+          <span>✦ Thoughtful study</span>
+        </div>
+        <div class="hero-preview" aria-hidden="true">
+          <div class="hero-preview-head">
+            Find your seat.<span>● Live availability</span>
+          </div>
+          <div class="hero-preview-stats">
+            <div>Available seats<b>64</b></div>
+            <div>Library occupancy<b>58%</b></div>
+          </div>
+          <div class="hero-preview-seats">
+            <i></i><i class="t"></i><i></i><i></i><i class="t"></i><i></i><i></i
+            ><i></i><i></i> <i class="t"></i><i class="t"></i><i></i><i></i
+            ><i class="t"></i><i></i><i></i><i></i><i></i> <i class="t"></i
+            ><i></i><i></i><i class="t"></i><i></i><i></i><i></i><i></i
+            ><i class="t"></i> <i></i><i></i><i class="t"></i><i></i><i></i>
+          </div>
+          <div class="hero-preview-toast">✓ Seat 1-05 checked in</div>
+        </div>
+        <p class="hero-preview-note">Illustrative preview only.</p>
+      </div>
+
+      <form class="login-card" id="loginForm">
+        <p class="eyebrow">WELCOME TO HAVEN</p>
+        <h2>Sign in to Haven</h2>
+        <p class="login-intro">
+          Use your student or librarian account. Haven opens the dashboard for
+          your account.
+        </p>
+        <label
+          >Email or student UID<input
+            id="loginId"
+            autocomplete="username"
+            placeholder="Email or UID"
+            required
+        /></label>
+        <label
+          >Password<input
+            id="loginPassword"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Your password"
+            required
+        /></label>
+        <div class="login-options">
+          <label class="check"
+            ><input id="rememberMe" type="checkbox" checked /> Remember
+            me</label
+          >
+          <button type="button" class="text-button" id="forgotButton">
+            Forgot password?
+          </button>
+        </div>
+        <button class="button primary full" type="submit">Sign in</button>
+        <p class="auth-error" id="authError" role="status"></p>
+        <div class="login-switch" id="studentSignupLink">
+          New to Haven?
+          <button type="button" class="text-button" id="showSignup">
+            Create a student account
+          </button>
+        </div>
+        <div class="demo-accounts">
+          <b>Demo accounts</b>
+          <div class="demo-account-row">
+            <span>Student</span><code>riya@college.edu</code
+            ><code>Haven@123</code>
+          </div>
+          <div class="demo-account-row">
+            <span>Admin</span><code>admin@college.edu</code
+            ><code>Admin@123</code>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <form class="login-card signup-card hidden" id="signupForm">
+      <p class="eyebrow">JOIN HAVEN</p>
+      <h2>Create your student account</h2>
+      <label>Full name<input id="signupName" required /></label>
+      <label>Student UID<input id="signupUid" required /></label>
+      <label
+        >College email<input id="signupEmail" type="email" required
+      /></label>
+      <label>Department<input id="signupDepartment" required /></label>
+      <label>
+        Year
+        <select id="signupYear">
+          <option>1st year</option>
+          <option>2nd year</option>
+          <option>3rd year</option>
+          <option>4th year</option>
+        </select>
+      </label>
+      <label
+        >Password<input
+          id="signupPassword"
+          type="password"
+          minlength="8"
+          required
+      /></label>
+      <button class="button primary full">Create account</button>
+      <p class="auth-error" id="signupError"></p>
+      <button type="button" class="text-button" id="showLogin">
+        Back to sign in
+      </button>
+    </form>
+
+    <div class="app hidden" id="app">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand side-brand" href="#">
+          <svg class="brand-icon"><use href="#haven-books" /></svg>
+          <span
+            >haven.<small id="brandTagline">LIBRARY SEAT FINDER</small></span
+          >
+        </a>
+        <p class="nav-label" id="navLabel">LIBRARY</p>
+        <nav id="navigation" aria-label="Main navigation"></nav>
+        <div class="side-profile">
+          <button class="profile-button" id="profileButton">
+            <span class="avatar" id="avatar">RS</span>
+            <span
+              ><b id="profileName"></b><small id="profileRole"></small
+            ></span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="profile-menu hidden" id="profileMenu">
+            <button id="profileDetailsButton">My profile</button>
+            <button id="adminGuideButton">Admin guide</button>
+            <button id="logoutButton">Log out</button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="breadcrumb">
+            Haven <span>/</span> <b id="currentPageLabel"></b>
+          </div>
+          <div class="top-actions">
+            <span id="dateChip" class="date-chip"></span>
+            <span id="liveClock" class="date-chip"></span>
+            <span class="live-status"
+              ><i></i><span id="topStatus">Live availability</span></span
+            >
+            <button
+              class="icon-button"
+              id="themeButton"
+              aria-label="Toggle dark mode"
+              title="Toggle theme"
+            >
+              ◐
+            </button>
+            <button
+              class="icon-button"
+              id="notificationButton"
+              aria-label="Notifications"
+            >
+              ♧<b id="notificationCount" class="notification-count hidden"></b>
+            </button>
+            <button
+              class="menu-toggle"
+              id="menuToggle"
+              aria-label="Open navigation"
+            >
+              ☰
+            </button>
+          </div>
+        </header>
+        <section class="page-heading">
+          <div>
+            <p class="eyebrow" id="pageEyebrow"></p>
+            <h1 id="pageTitle"></h1>
+            <p class="page-subtitle" id="pageSubtitle"></p>
+          </div>
+        </section>
+        <div id="pageContent"></div>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="modal-backdrop" id="modalBackdrop" role="presentation">
+      <section
+        class="modal"
+        id="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button class="modal-x" id="modalX" aria-label="Close">×</button>
+        <p class="eyebrow" id="modalEyebrow"></p>
+        <h2 id="modalTitle"></h2>
+        <div id="modalBody"></div>
+        <div class="modal-actions" id="modalActions"></div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
